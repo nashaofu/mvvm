@@ -1,37 +1,26 @@
-;(function() {
-  var a = {
-    c: 10,
-    e: { c: 20 },
-    d: 1
-  }
+var model = {
+  a: 10,
+  b: { d: 20 },
+  c: 1
+}
 
-  console.log(a)
-  var $ = selector => document.querySelector(selector)
+var $ = selector => document.querySelector(selector)
 
-  // 劫持所有属性
-  observe(a)
+// 劫持所有属性
+observe(model)
 
-  // 观察a.c
-  // new Watcher(a, 'c', function(n, o) {
-  //   console.log('a.c', n, o)
-  // })
+$('#model-a').innerHTML = model.a
+$('#model-a-val').innerHTML = model.a
 
-  // new Watcher(a, 'c', function(n, o) {
-  //   console.log('a.c2', n, o)
-  // })
+// 观察a属性
+new Watcher(model, 'a', function(nVal, oVal) {
+  $('#model-a').innerHTML = nVal
+  $('#model-a-val').innerHTML = nVal
+})
 
-  // new Watcher(a, 'e', function(n, o) {
-  //   console.log(n, o)
-  // })
-
-  new Watcher(a, 'd', function(n, o) {
-    $('#ad').innerHTML = n
-  })
-
-  $('#ad').innerHTML = a.d
-  $('#add').addEventListener('click', function() {
-    console.log('改变前innerHTML', $('#ad').innerHTML)
-    a.d++
-    console.log('改变后innerHTML', $('#ad').innerHTML)
-  })
-})()
+// 绑定事件
+$('#add').addEventListener('click', function() {
+  console.log('改变前innerHTML', $('#model-a').innerHTML)
+  model.a++
+  console.log('改变后innerHTML', $('#model-a').innerHTML)
+})

@@ -1,0 +1,18 @@
+button {
+  padding: 10px;
+  background-color: #08f;
+  color: #fff;
+  border: none;
+}
+
+pre {
+  background-color: #372830;
+  color: #fff;
+  padding: 10px;
+}
+
+input {
+  height: 34px;
+  padding: 0 8px;
+  border: 1px solid #08f;
+}
