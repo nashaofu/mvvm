@@ -40,7 +40,7 @@ function defineReactive(obj, key, val) {
     configurable: true,
     get() {
       if (Dep.target) {
-        dep.depend()
+        dep.depend(Dep.target)
       }
       return val
     },
