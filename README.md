@@ -64,6 +64,8 @@ var model = {
 </body>
 </html>
 ```
+执行过程简介如下：
+![mvvm](./mvvm.png)
 
 ## 完整mvvm实现
 ```html

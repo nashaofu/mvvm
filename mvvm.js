@@ -33,10 +33,11 @@ function Mvvm(options) {
     this[key] = methods[key]
   })
 
-  observe(this._data)
   // watch选项设置
   const watch = this.$options.watch || {}
   Object.keys(watch).forEach(key => this.$watch(key, watch[key]))
+
+  observe(this._data)
 
   new Compile(this)
   return this

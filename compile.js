@@ -5,16 +5,6 @@ function Compile(vm) {
 }
 
 Compile.prototype = {
-  nodeToFragment(el) {
-    const fragment = document.createDocumentFragment()
-    let child = el.firstChild
-    // 将原生节点拷贝到fragment
-    while (child) {
-      fragment.appendChild(child)
-      child = el.firstChild
-    }
-    return fragment
-  },
   compileElement(el) {
     Array.prototype.slice.call(el.childNodes).forEach(node => {
       const text = node.textContent
